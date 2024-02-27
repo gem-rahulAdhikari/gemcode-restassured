@@ -1,0 +1,48 @@
+name: Run Restassured Tests
+
+on:
+  push:
+    branches:
+      - beta1  # Change this to your default branch if different
+    paths:
+      - 'src/main/java/App.java'
+
+jobs:
+  run_tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and run Selenium tests
+        run: |
+          mkdir test-output
+          FILE_NAME=reportName.properties
+
+          getProperty() {
+            prop_key=$1
+            prop_value=$(cat ${FILE_NAME} | grep ${prop_key} | cut -d'=' -f2)
+          }
+          getProperty reportName
+          cd test-output
+          > ${prop_value}.txt
+          cd ..
+           mvn test -DsuiteXmlFile=testng.xml >> ./test-output/${prop_value}.txt
+          #mvn test -DsuiteXmlFile=testng.xml
+        shell: bash
+
+      - name: list files
+        if: always()
+        run: |
+          ls
+          echo
+          echo "ls test-output"
+          cd test-output
+          ls
+
+      - name: Check for compile errors and upload report
+        if: always()
+        run: |
+          javac -cp .:resources/* compileExceptionsUploader.java
+          java -cp .:resources/* compileExceptionsUploader
