@@ -66,9 +66,10 @@ public class ExecutionConfig extends App {
         Response response = RestAssured.given().queryParam("url", userId).get().then().extract().response();
         if ((response.getBody().jsonPath().get("url")).toString().equalsIgnoreCase("[]"))
             return "User not found";
-        else if (response.getBody().jsonPath().get("Submissions").toString().equalsIgnoreCase("[[]]")) {
-            return "Object not created";
-        } else {
+//        else if (response.getBody().jsonPath().get("Submissions").toString().equalsIgnoreCase("[[]]")) {
+//            return "Object not created";
+       // }
+        else {
             //  System.out.println("upload data put");
             RestAssured.baseURI = "https://us-east-1.aws.data.mongodb-api.com/app/application-0-awqqz/endpoint/updateSeleniumSubmission";
             //    String payload = "{\"filter\": {\"url\":\"\"" + userId + "},\"SubmittedCode\":\"\"" + classContent + ",\"Output\":\"\"" + output + "}";
