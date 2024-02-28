@@ -58,7 +58,7 @@ public class ExecutionConfig extends App {
         String classContent = readClassFileAsString("./src/main/java/App.java").replace("\"", "\\\"")
                 .replace("\n", "\\n")
                 .replace("\r", "\\r");
-        output = output.replace("\r", "\\r");
+        output = output.replace("\"", "\\\"").replace("\r", "\\r");
         //check if previous executions are present
         RestAssured.baseURI = "https://us-east-1.aws.data.mongodb-api.com/app/application-0-awqqz/endpoint/getSeleniumOutput";
         Response response = RestAssured.given().queryParam("url", userId).get().then().extract().response();
