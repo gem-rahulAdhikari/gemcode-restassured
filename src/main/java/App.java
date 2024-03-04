@@ -19,7 +19,7 @@ public class App {
        
         x.put("headers", null);
        
-        x.put("response", response.asString());
+       
         x.put("status-code", String.valueOf(response.statusCode()));
         return x;
     }
