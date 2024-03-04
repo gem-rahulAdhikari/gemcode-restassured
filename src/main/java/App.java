@@ -15,7 +15,7 @@ public class App {
         //     return [base_url, method, params, headers, request body, response_body, status code]
         Map<String, String> x = new HashMap<>();
         x.put("baseURL", baseURI);
-        x.put("method", "get");
+     
        
         
        
