@@ -15,11 +15,11 @@ public class App {
         //     return [base_url, method, params, headers, request body, response_body, status code]
         Map<String, String> x = new HashMap<>();
         x.put("baseURL", baseURI);
-     
+        x.put("method", "get");
        
-        
-       
-       
+        x.put("headers", null);
+        x.put("payload", null);
+        x.put("response", response.asString());
         x.put("status-code", String.valueOf(response.statusCode()));
         return x;
     }
