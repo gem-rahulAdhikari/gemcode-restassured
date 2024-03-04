@@ -16,7 +16,7 @@ public class App {
         Map<String, String> x = new HashMap<>();
         x.put("baseURL", baseURI);
         x.put("method", "get");
-        x.put("parameters", null);
+       
         x.put("headers", null);
         x.put("payload", null);
         x.put("response", response.asString());
