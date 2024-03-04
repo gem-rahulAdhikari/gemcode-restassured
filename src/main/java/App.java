@@ -18,7 +18,7 @@ public class App {
         x.put("method", "get");
        
         x.put("headers", null);
-        x.put("payload", null);
+       
         x.put("response", response.asString());
         x.put("status-code", String.valueOf(response.statusCode()));
         return x;
