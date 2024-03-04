@@ -5,8 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class App {
-    static String reportName="Report_1709011503_0";
-    public Map<String, String> demo() {
+     public Map<String, String> demo() {
         
         String baseURI = "https://betaapi.gemecosystem.com/gemEcosystemDashboard/actuator/health";
         RestAssured.baseURI = baseURI;
@@ -24,4 +23,6 @@ public class App {
         x.put("status-code", String.valueOf(response.statusCode()));
         return x;
     }
+   
+
 }
